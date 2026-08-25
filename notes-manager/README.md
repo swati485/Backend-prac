@@ -295,7 +295,7 @@ The application uses a modern dark-themed interface with:
 
 ---
 
-  What I Learned
+ ## What I Learned
 
 Through this project, I practiced:
 
