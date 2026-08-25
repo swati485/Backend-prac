@@ -1,181 +1,354 @@
-# Backend CRUD API
+# 📝 Notes Manager
 
-A simple RESTful backend built with **Node.js, Express.js, and MongoDB** for creating, reading, updating, and deleting notes.
+A full-stack **Notes Manager** application that allows users to create, view, update, and delete notes.
+
+The project is built using **React.js** for the frontend, **Node.js + Express.js** for the backend, and **MongoDB** for storing notes.
+
+---
 
 ## 🚀 Features
 
 * Create a new note
-* Fetch all notes
-* Update a note's description
-* Delete a note
-* MongoDB database integration
-* RESTful API endpoints
-* Environment variables for sensitive configuration
+* View all notes
+* Update existing notes
+* Delete notes
+* RESTful API integration
+* MongoDB database storage
+* Responsive and modern dark UI
+* Axios for API requests
+* CORS enabled for frontend-backend communication
+
+---
 
 ## 🛠️ Tech Stack
 
-* **Node.js**
-* **Express.js**
-* **MongoDB**
-* **Mongoose**
-* **Git & GitHub**
-* **Postman** for API testing
+### Frontend
 
-## 📁 Project Structure
+* React.js
+* Axios
+* HTML
+* CSS
+* JavaScript
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* CORS
+
+---
+
+## 📂 Project Structure
 
 ```text
-Backend/
-├── src/
+Notes-Manager/
+│
+├── Backend/
+│   ├── models/
+│   │   └── note.model.js
+│   │
 │   ├── app.js
-│   ├── config/
-│   │   └── database.js
-│   └── models/
-│       └── note.model.js
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── server.js
+│   ├── server.js
+│   ├── package.json
+│   └── ...
+│
+├── Frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── ...
+│   │
+│   ├── package.json
+│   └── ...
+│
 └── README.md
 ```
 
-## ⚙️ Installation
+---
 
-### 1. Clone the repository
+## 🔄 CRUD Operations
 
-```bash
-git clone https://github.com/swati485/Backend-prac.git
-cd Backend-prac
+The application implements all four basic CRUD operations:
+
+| Operation   | HTTP Method | API Endpoint     |
+| ----------- | ----------- | ---------------- |
+| Create Note | `POST`      | `/api/notes`     |
+| Get Notes   | `GET`       | `/api/notes`     |
+| Update Note | `PATCH`     | `/api/notes/:id` |
+| Delete Note | `DELETE`    | `/api/notes/:id` |
+
+---
+
+## 🔌 API Endpoints
+
+### Create Note
+
+```http
+POST /api/notes
 ```
 
-### 2. Install dependencies
+Request body:
+
+```json
+{
+  "title": "My Note",
+  "description": "This is my note."
+}
+```
+
+---
+
+### Get All Notes
+
+```http
+GET /api/notes
+```
+
+Returns all notes stored in MongoDB.
+
+---
+
+### Update Note
+
+```http
+PATCH /api/notes/:id
+```
+
+Request body:
+
+```json
+{
+  "title": "Updated Title",
+  "description": "Updated description."
+}
+```
+
+---
+
+### Delete Note
+
+```http
+DELETE /api/notes/:id
+```
+
+Deletes the note associated with the given MongoDB ID.
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-github-repository-url>
+```
+
+```bash
+cd Notes-Manager
+```
+
+---
+
+### 2. Backend Setup
+
+Go to the backend directory:
+
+```bash
+cd Backend
+```
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### 3. Configure environment variables
-
-Create a `.env` file in the project root:
+Create a `.env` file:
 
 ```env
 MONGO_URI=your_mongodb_connection_string
 PORT=3000
 ```
 
-> Do not commit your `.env` file to GitHub.
-
-### 4. Start the server
+Start the backend:
 
 ```bash
-node server.js
+npm start
 ```
 
-The server will run on:
+The backend will run on:
 
 ```text
 http://localhost:3000
 ```
 
-## 🔗 API Endpoints
+---
 
-### Create a Note
+### 3. Frontend Setup
 
-**POST**
+Open another terminal and go to the frontend directory:
+
+```bash
+cd Frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the React development server:
+
+```bash
+npm run dev
+```
+
+The frontend will usually be available at:
 
 ```text
-/api/notes
+http://localhost:5173
 ```
 
-Request body:
+---
 
-```json
-{
-  "title": "My First Note",
-  "description": "This is my first note."
-}
+## 🔐 Environment Variables
+
+The backend requires a MongoDB connection string.
+
+Example:
+
+```env
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/notes
+PORT=3000
 ```
 
-### Get All Notes
+**Do not commit your `.env` file to GitHub.**
 
-**GET**
+Add this to `.gitignore`:
 
 ```text
-/api/notes
-```
-
-Returns all notes stored in MongoDB.
-
-### Update a Note
-
-**PATCH**
-
-```text
-/api/notes/:id
-```
-
-Request body:
-
-```json
-{
-  "description": "Updated note description."
-}
-```
-
-Replace `:id` with the MongoDB document ID.
-
-### Delete a Note
-
-**DELETE**
-
-```text
-/api/notes/:id
-```
-
-Replace `:id` with the MongoDB document ID.
-
-## 🧪 Testing
-
-The APIs can be tested using **Postman**.
-
-| Method | Endpoint         | Purpose       |
-| ------ | ---------------- | ------------- |
-| POST   | `/api/notes`     | Create a note |
-| GET    | `/api/notes`     | Get all notes |
-| PATCH  | `/api/notes/:id` | Update a note |
-| DELETE | `/api/notes/:id` | Delete a note |
-
-For POST and PATCH requests, use:
-
-```text
-Content-Type: application/json
-```
-
-## 🔐 Environment & Security
-
-The project uses environment variables to keep sensitive information such as the MongoDB connection string outside the source code.
-
-The following files are excluded using `.gitignore`:
-
-```text
-node_modules/
 .env
+node_modules/
 ```
 
-## 📌 Future Improvements
+---
 
-* Add validation for request data
-* Add error handling middleware
-* Add GET endpoint for a single note
-* Add timestamps to notes
-* Add authentication and authorization
-* Add a frontend interface
+## 🖥️ How It Works
+
+### Creating a Note
+
+The user enters a title and description and clicks **Create Note**.
+
+The React frontend sends:
+
+```text
+POST /api/notes
+```
+
+to the Express backend.
+
+The backend stores the note in MongoDB and returns the created note.
+
+After a successful request, the input fields are cleared and the notes list is refreshed.
+
+---
+
+### Updating a Note
+
+Clicking the **Update** button asks the user for a new title and description.
+
+The frontend sends:
+
+```text
+PATCH /api/notes/:id
+```
+
+The backend uses the MongoDB `_id` to find and update the note.
+
+---
+
+### Deleting a Note
+
+Clicking **Delete** sends:
+
+```text
+DELETE /api/notes/:id
+```
+
+The backend removes the note from MongoDB and the frontend refreshes the list.
+
+---
+
+## 🎨 UI
+
+The application uses a modern dark-themed interface with:
+
+* Notes cards
+* Create Note form
+* Red Delete button
+* Green Update button
+* Responsive layout
+* Hover effects
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of your application here:
+
+```text
+![Notes Manager](./screenshots/notes-manager.png)
+```
+
+---
+
+## 📚 What I Learned
+
+Through this project, I practiced:
+
+* React state management using `useState`
+* React lifecycle using `useEffect`
+* Handling form submissions
+* Making API requests with Axios
+* Building REST APIs with Express.js
+* Creating MongoDB models using Mongoose
+* Implementing CRUD operations
+* Connecting frontend and backend
+* Using HTTP methods such as GET, POST, PATCH, and DELETE
+* Handling MongoDB document IDs
+* Creating a responsive UI using CSS
+* Using Git and GitHub for version control
+
+---
+
+## 🔮 Future Improvements
+
+Possible future improvements include:
+
+* User authentication
+* Search notes
+* Filter and sort notes
+* Edit notes using a proper form/modal instead of `prompt()`
+* Add note categories
+* Add timestamps
+* Add pagination
+* Deploy frontend and backend
+* Add form validation
+* Add loading and error states
+
+---
 
 ## 👩‍💻 Author
 
 **Swati Sharma**
 
-GitHub: [@swati485](https://github.com/swati485)
+Built as a full-stack CRUD project using the MERN stack.
 
 ---
 
-⭐ If you find this project useful, consider giving the repository a star.
+## ⭐ If You Like This Project
+
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
