@@ -1,4 +1,4 @@
-# 📝 Notes Manager
+#  Notes Manager
 
 A full-stack **Notes Manager** application that allows users to create, view, update, and delete notes.
 
@@ -6,7 +6,7 @@ The project is built using **React.js** for the frontend, **Node.js + Express.js
 
 ---
 
-## 🚀 Features
+##  Features
 
 * Create a new note
 * View all notes
@@ -20,7 +20,7 @@ The project is built using **React.js** for the frontend, **Node.js + Express.js
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 
@@ -40,7 +40,7 @@ The project is built using **React.js** for the frontend, **Node.js + Express.js
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 Notes-Manager/
@@ -68,7 +68,7 @@ Notes-Manager/
 
 ---
 
-## 🔄 CRUD Operations
+##  CRUD Operations
 
 The application implements all four basic CRUD operations:
 
@@ -137,7 +137,7 @@ Deletes the note associated with the given MongoDB ID.
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -214,7 +214,7 @@ http://localhost:5173
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 The backend requires a MongoDB connection string.
 
@@ -236,7 +236,7 @@ node_modules/
 
 ---
 
-## 🖥️ How It Works
+##  How It Works
 
 ### Creating a Note
 
@@ -282,7 +282,7 @@ The backend removes the note from MongoDB and the frontend refreshes the list.
 
 ---
 
-## 🎨 UI
+##  UI
 
 The application uses a modern dark-themed interface with:
 
@@ -295,17 +295,7 @@ The application uses a modern dark-themed interface with:
 
 ---
 
-## 📸 Screenshots
-
-Add screenshots of your application here:
-
-```text
-![Notes Manager](./screenshots/notes-manager.png)
-```
-
----
-
-## 📚 What I Learned
+ 📚 What I Learned
 
 Through this project, I practiced:
 
@@ -324,7 +314,7 @@ Through this project, I practiced:
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 Possible future improvements include:
 
@@ -341,7 +331,7 @@ Possible future improvements include:
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
 **Swati Sharma**
 
