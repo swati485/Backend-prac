@@ -3,41 +3,220 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
-html{
-  background-color: rgb(31, 31, 31);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-}  
-
-.notes{
-  display: flex;
-  gap: 1rem;
-  padding-block: 1rem;
-  padding-inline: 3rem;
-  flex-wrap: wrap;
+html {
+  background: #111827;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
 
-.note{
-  background-color: rgb(61, 61, 61);
-  padding: 1rem;
-  border-radius: 0.7rem;
-  max-width: 20rem;
+body {
+  color: #f9fafb;
+}
+
+/* =========================
+   Create Note Form
+========================= */
+
+.page-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #f9fafb;
+  padding: 30px 58px 15px;
+  margin: 0;
+  background: #1f2937;
+}
+
+.note-create-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 48px;
+  background: #1f2937;
+  border-bottom: 1px solid #374151;
+}
+
+.note-create-form input {
+  width: 240px;
+  padding: 12px 14px;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  outline: none;
+  background: #111827;
   color: white;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.note-create-form input::placeholder {
+  color: #9ca3af;
+}
+
+.note-create-form input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Create button */
+
+.note-create-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #6366f1;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.note-create-form button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Notes Container
+========================= */
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 32px 48px;
+}
+
+/* =========================
+   Note Card
+========================= */
+
+.note {
+  background: #1f2937;
+  border: 1px solid #374151;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  min-height: 170px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.note:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Note title */
+
+.note h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f9fafb;
+  word-break: break-word;
+}
+
+/* Note description */
+
+.note p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.note button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+/* Put buttons side by side */
+.note {
+  display: flex;
+  flex-direction: column;
   
 }
 
-.note-create-form{
+.note-buttons {
   display: flex;
-  gap: 1rem;
-  padding-inline: 3rem;
-  padding-block: 1rem;
-
+  gap: 10px;
+  margin-top: auto;
 }
-    
+
+.note button:first-of-type {
+  background: #ef2929;
+  color: white;
+}
+
+.note button:first-of-type:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.note button:last-of-type {
+  background: #16a34a;
+  color: white;
+}
+
+.note button:last-of-type:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+/* Button row */
+.note button:first-of-type {
+  margin-right: 0;
+}
+
+/* Wrap the buttons side-by-side */
+.note button {
+  width: auto;
+}
+
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 700px) {
+  .note-create-form {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  .note-create-form input,
+  .note-create-form button {
+    width: 100%;
+  }
+
+  .notes {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
