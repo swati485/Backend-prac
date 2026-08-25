@@ -81,7 +81,7 @@ The application implements all four basic CRUD operations:
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 ### Create Note
 
