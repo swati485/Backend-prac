@@ -295,7 +295,7 @@ The application uses a modern dark-themed interface with:
 
 ---
 
- 📚 What I Learned
+  What I Learned
 
 Through this project, I practiced:
 
@@ -339,6 +339,6 @@ Built as a full-stack CRUD project using the MERN stack.
 
 ---
 
-## ⭐ If You Like This Project
+##  If You Like This Project
 
 If you find this project useful, consider giving the repository a ⭐ on GitHub.
